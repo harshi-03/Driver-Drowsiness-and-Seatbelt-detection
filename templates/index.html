@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Run Python Script</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color:cadetblue;
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            /* align-items: center; */
+            /* height: 100vh; */
+        }
+
+        .container {
+            margin-top: 30px;
+        }
+        
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        #runButton {
+            background-color: #4caf50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 190px 190px 190px 280px ; 
+            
+            /* transition: background-color 0.3s; */
+
+        }
+
+        #runButton:hover {
+            background-color: #45a049;
+           
+        }
+    </style>
+</head>
+<body >
+    <div class="container">
+        <h1>DRIVER DROWSINESS AND SEATBELT DETECTION</h1>
+        <button id="runButton">Run Script</button>
+    </div>
+
+    <script>
+        document.getElementById('runButton').addEventListener('click', function() {
+            fetch('/run_script', {
+                method: 'POST',
+            })
+            .then(response => response.text())
+            .then(data => console.log(data))
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>
